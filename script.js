@@ -1,11 +1,18 @@
+///////API/////////////
+
 const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=4ff3cfff3f84aa4a9939cee388ea7e32&language=en-US'
 const IMG_URL = 'https://image.tmdb.org/t/p/w400'
 const SEARCH_URL = 'https://api.themoviedb.org/3/search/movie?api_key=4ff3cfff3f84aa4a9939cee388ea7e32&language=en-US&include_adult=false'
+
+
+////////Selectors///////////////////
 
 const main = document.querySelector('.main')
 const form = document.querySelector('.form')
 const search = document.querySelector('.search')
 
+
+////fetch movie details from API////////////////////
 
 const getMovies = (url) => {
     fetch(url)
@@ -17,6 +24,9 @@ const getMovies = (url) => {
 }
 
 getMovies(url)
+
+
+////////Map movie into HTML/////////////////
 
 const showMovies = (data) => {
     main.innerHTML = ''
@@ -55,6 +65,8 @@ const showColor = (vote_average) => {
         return 'red'
     }
 }
+
+////////Search feature/////////////////////////
 
 form.addEventListener('submit',(e) => {
     e.preventDefault()
